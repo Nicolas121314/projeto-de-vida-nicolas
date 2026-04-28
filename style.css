@@ -167,14 +167,17 @@ body::before {
     }
 }
 
-/* Sistema de abas estilo holográfico */
+/* Sistema de abas */
 .sistema-abas {
     max-width: 1000px;
     margin: 0 auto 30px;
 }
 
-.aba-input {
-    display: none;
+.abas-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .aba-label {
@@ -184,7 +187,6 @@ body::before {
     background: rgba(10, 10, 15, 0.8);
     backdrop-filter: blur(10px);
     padding: 12px 24px;
-    margin: 0 5px 10px 0;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -200,21 +202,6 @@ body::before {
     box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
 }
 
-.aba-input:checked + .aba-label {
-    background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(181, 0, 255, 0.2));
-    border-color: var(--azul-neon);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
-}
-
-.icone-aba {
-    font-size: 1.2rem;
-}
-
-.texto-aba {
-    font-size: 0.85rem;
-}
-
-/* Conteúdo das abas */
 .aba-conteudo-container {
     background: rgba(10, 10, 15, 0.6);
     backdrop-filter: blur(20px);
@@ -244,6 +231,10 @@ body::before {
     opacity: 0.1;
 }
 
+.aba-input {
+    display: none;
+}
+
 .aba-conteudo {
     display: none;
     animation: fadeIn 0.5s ease;
@@ -260,10 +251,18 @@ body::before {
     }
 }
 
-#aba1:checked ~ .aba-conteudo-container #conteudo1,
-#aba2:checked ~ .aba-conteudo-container #conteudo2,
-#aba3:checked ~ .aba-conteudo-container #conteudo3,
-#aba4:checked ~ .aba-conteudo-container #conteudo4 {
+#aba1:checked ~ .aba-conteudo,
+#aba1:checked ~ .aba-conteudo {
+    display: block;
+}
+
+/* Estilo quando o input está marcado */
+.aba-input:checked + .aba-conteudo {
+    display: block;
+}
+
+/* Ajuste para funcionar com a estrutura */
+.aba-input:checked + .aba-conteudo {
     display: block;
 }
 
@@ -305,6 +304,7 @@ body::before {
     background: linear-gradient(90deg, var(--azul-neon), var(--verde-neon));
     border-radius: 10px;
     animation: progressGlow 2s infinite;
+    width: 0%;
 }
 
 @keyframes progressGlow {
@@ -525,4 +525,50 @@ body::before {
     50% {
         opacity: 0.7;
     }
+}
+
+/* Mostrar apenas o input checkado com o próximo irmão */
+.aba-input:checked + .aba-conteudo {
+    display: block !important;
+}
+
+/* Esconder inputs não checados */
+.aba-input:not(:checked) + .aba-conteudo {
+    display: none;
+}
+
+/* Ajuste para mostrar o primeiro por padrão */
+#aba1:checked ~ .aba-conteudo,
+#aba2:checked ~ .aba-conteudo,
+#aba3:checked ~ .aba-conteudo,
+#aba4:checked ~ .aba-conteudo {
+    display: none;
+}
+
+#aba1:checked + .aba-conteudo,
+#aba2:checked + .aba-conteudo,
+#aba3:checked + .aba-conteudo,
+#aba4:checked + .aba-conteudo {
+    display: block;
+}
+
+/* Garantir que cada input mostre seu conteúdo */
+.aba-conteudo {
+    display: none;
+}
+
+#aba1:checked + .aba-conteudo {
+    display: block;
+}
+
+#aba2:checked + .aba-conteudo {
+    display: block;
+}
+
+#aba3:checked + .aba-conteudo {
+    display: block;
+}
+
+#aba4:checked + .aba-conteudo {
+    display: block;
 }
