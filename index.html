@@ -4,300 +4,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 - Meus Objetivos Pessoais</title>
+    <title>2026 - Meus Objetivos do Ano</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Partículas de fundo futuristas -->
-    <div class="particulas"></div>
-    
     <section class="conteudo-principal">
-        <div class="cabecalho-futurista">
-            <div class="linha-tempo"></div>
-            <h2 class="titulo-principal">
-                <span class="ano-neon">2026</span>
-                <span class="titulo-missao">MEUS <span class="destaque-neon">OBJETIVOS</span></span>
-                <span class="codigo-status">[MISSÕES_PESSOAIS]</span>
-            </h2>
-            <div class="dados-sistema">
-                <span class="status">🟢 SISTEMA ATIVO</span>
-                <span class="versao">v2.0.6</span>
-            </div>
-        </div>
-
+        <h2 class="titulo-principal">Meus objetivos do ano<span>_</span></h2>
+        
         <div class="conteudo">
-            <!-- Sistema de abas estilo holográfico -->
-            <div class="sistema-abas">
-                <div class="abas-botoes">
-                    <label for="aba1" class="aba-label">
-                        <span class="icone-aba">🎓</span>
-                        <span class="texto-aba">FACULDADE</span>
-                    </label>
-
-                    <label for="aba2" class="aba-label">
-                        <span class="icone-aba">🚗</span>
-                        <span class="texto-aba">CNH</span>
-                    </label>
-
-                    <label for="aba3" class="aba-label">
-                        <span class="icone-aba">🌍</span>
-                        <span class="texto-aba">IDIOMA</span>
-                    </label>
-
-                    <label for="aba4" class="aba-label">
-                        <span class="icone-aba">✈️</span>
-                        <span class="texto-aba">VIAGEM</span>
-                    </label>
-                </div>
-
-                <!-- Conteúdo das abas -->
-                <div class="aba-conteudo-container">
-                    <input type="radio" name="aba" id="aba1" class="aba-input" checked>
-                    <div class="aba-conteudo" id="conteudo1">
-                        <div class="card-missao">
-                            <div class="nivel-dificuldade">
-                                <span class="dificuldade-badge">NÍVEL 1 • PRIORIDADE MÁXIMA</span>
-                                <div class="barras-energia">
-                                    <div class="barra-energia" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <h3 class="missao-titulo">🎓 INGRESSAR NA FACULDADE</h3>
-                            <div class="missao-objetivos">
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Escolher o curso</h4>
-                                        <p>Analisar opções: ADS, Engenharia ou Sistemas</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Fazer o ENEM</h4>
-                                        <p>Preparação e inscrição até outubro</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Matrícula realizada</h4>
-                                        <p>Garantir vaga na faculdade dos sonhos</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recompensa">
-                                <span>🎯 META: Início das aulas em 2026.2</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <input type="radio" name="aba" id="aba2" class="aba-input">
-                    <div class="aba-conteudo" id="conteudo2">
-                        <div class="card-missao">
-                            <div class="nivel-dificuldade">
-                                <span class="dificuldade-badge">NÍVEL 2 • MÉDIO</span>
-                                <div class="barras-energia">
-                                    <div class="barra-energia" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <h3 class="missao-titulo">🚗 TIRAR A CNH</h3>
-                            <div class="missao-objetivos">
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Prova Teórica</h4>
-                                        <p>Estudar legislação e simulados</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Aulas Práticas</h4>
-                                        <p>25 horas de direção supervisionada</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Exame Prático</h4>
-                                        <p>Aprovar no teste de direção</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recompensa">
-                                <span>🏆 RECOMPENSA: Mobilidade + Liberdade</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <input type="radio" name="aba" id="aba3" class="aba-input">
-                    <div class="aba-conteudo" id="conteudo3">
-                        <div class="card-missao">
-                            <div class="nivel-dificuldade">
-                                <span class="dificuldade-badge">NÍVEL 3 • INTERMEDIÁRIO</span>
-                                <div class="barras-energia">
-                                    <div class="barra-energia" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <h3 class="missao-titulo">🌍 APRENDER UM IDIOMA NOVO</h3>
-                            <div class="missao-objetivos">
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Escolher o idioma</h4>
-                                        <p>Inglês / Espanhol / Alemão / Francês</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Curso completo</h4>
-                                        <p>Finalizar Nível Básico (A1/A2)</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Prática diária</h4>
-                                        <p>30 min de estudo por dia</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Certificação</h4>
-                                        <p>Obter certificado de proficiência</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recompensa">
-                                <span>🌎 RECOMPENSA: Novas oportunidades + Conexões</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <input type="radio" name="aba" id="aba4" class="aba-input">
-                    <div class="aba-conteudo" id="conteudo4">
-                        <div class="card-missao">
-                            <div class="nivel-dificuldade">
-                                <span class="dificuldade-badge">NÍVEL 4 • DESAFIO</span>
-                                <div class="barras-energia">
-                                    <div class="barra-energia" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <h3 class="missao-titulo">✈️ VIAJAR ATÉ O FINAL DO ANO</h3>
-                            <div class="missao-objetivos">
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Planejar destino</h4>
-                                        <p>Escolher entre: Praia, Montanha ou Cidade Grande</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Criar roteiro</h4>
-                                        <p>Pesquisar atrações, hotéis e restaurantes</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Economizar dinheiro</h4>
-                                        <p>Guardar valor específico por mês</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="objetivo-card">
-                                    <div class="objetivo-check">◻</div>
-                                    <div class="objetivo-info">
-                                        <h4>Realizar a viagem</h4>
-                                        <p>Passagem + Hospedagem + Diversão</p>
-                                        <div class="progresso-meta">
-                                            <div class="progresso-bar" style="width: 0%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recompensa">
-                                <span>🏝️ RECOMPENSA: Experiência + Memórias incríveis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="botoes">
+                <button class="botao ativo">🎓 Faculdade</button>
+                <button class="botao">🚗 CNH</button>
+                <button class="botao">🌍 Idioma Novo</button>
+                <button class="botao">✈️ Viagem</button>
             </div>
-
-            <!-- Painel de Progresso Anual -->
-            <div class="painel-progresso">
-                <div class="titulo-painel">📊 PROGRESSO 2026</div>
-                <div class="xp-total">
-                    <span>METAS CONCLUÍDAS: 0 / 4</span>
-                    <div class="progresso-global">
-                        <div class="progresso-global-bar" style="width: 0%"></div>
+            
+            <div class="abas-textos">
+                <!-- Objetivo 1: Faculdade -->
+                <div class="aba-conteudo ativo">
+                    <h3 class="aba-conteudo-titulo-principal">Ingressar na Faculdade</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">Meta: Matrícula realizada até Fevereiro/2026</h4>
+                    <div class="contador">
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias0">--</p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas0">--</p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min0">--</p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg0">--</p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+                    </div>
+                    <div class="frase-motivacional">
+                        "O primeiro passo para o sucesso é acreditar no seu potencial"
                     </div>
                 </div>
-                <div class="metas-concluidas">
-                    <span>🎯 OBJETIVOS: 0% COMPLETO</span>
+
+                <!-- Objetivo 2: CNH -->
+                <div class="aba-conteudo">
+                    <h3 class="aba-conteudo-titulo-principal">Tirar a CNH</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">Meta: CNH aprovada até Junho/2026</h4>
+                    <div class="contador">
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias1">--</p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas1">--</p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min1">--</p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg1">--</p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+                    </div>
+                    <div class="frase-motivacional">
+                        "A disciplina é a ponte entre metas e realizações"
+                    </div>
                 </div>
-                <div class="ranking">
-                    <span>⏰ PRAZO FINAL: 31/DEZ/2026</span>
+
+                <!-- Objetivo 3: Idioma -->
+                <div class="aba-conteudo">
+                    <h3 class="aba-conteudo-titulo-principal">Aprender um Idioma Novo</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">Meta: Certificação até Setembro/2026</h4>
+                    <div class="contador">
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias2">--</p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas2">--</p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min2">--</p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg2">--</p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+                    </div>
+                    <div class="frase-motivacional">
+                        "Um novo idioma é uma nova visão de mundo"
+                    </div>
                 </div>
-                <div class="frase-motivacional">
-                    <span>⚡ "UM OBJETIVO POR VEZ, UM SONHO POR DIA"</span>
+
+                <!-- Objetivo 4: Viagem -->
+                <div class="aba-conteudo">
+                    <h3 class="aba-conteudo-titulo-principal">Viajar até o Final do Ano</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">Meta: Viagem realizada até Dezembro/2026</h4>
+                    <div class="contador">
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias3">--</p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas3">--</p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min3">--</p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg3">--</p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+                    </div>
+                    <div class="frase-motivacional">
+                        "Viajar é a única coisa que te faz mais rico"
+                    </div>
                 </div>
             </div>
         </div>
-
-        <!-- Rodapé futurista com datas -->
-        <div class="footer-futurista">
-            <div class="scanner"></div>
-            <div class="info-sistema">
-                <span>© 2026 - MISSÕES PESSOAIS</span>
-                <span>📅 DEADLINE: 31/12/2026</span>
-                <span>🔒 PLANO DE AÇÃO ATIVO</span>
-            </div>
+        
+        <div class="footer-motivacional">
+            <p>⚡ 2026 - O ano da transformação! Cada dia é uma nova oportunidade ⚡</p>
         </div>
     </section>
+    
+    <script src="main.js"></script>
 </body>
 
 </html>
