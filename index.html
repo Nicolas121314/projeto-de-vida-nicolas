@@ -4,113 +4,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus objetivos do ano | Futurista Neon</title>
+    <title>2026 - Missão Futurista</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <!-- Partículas de fundo futuristas -->
+    <div class="particulas"></div>
+    
     <section class="conteudo-principal">
-        <h2 class="titulo-principal">Meus objetivos do ano<span>_</span></h2>
-        <div class="conteudo">
-            <div class="botoes">
-                <button class="botao ativo">Cursos na Alura</button>
-                <button class="botao">Criar projetos em Javascript</button>
-                <button class="botao">Criar um portfolio</button>
-                <button class="botao">Atualizar meu currículo</button>
+        <div class="cabecalho-futurista">
+            <div class="linha-tempo"></div>
+            <h2 class="titulo-principal">
+                <span class="ano-neon">2026</span>
+                <span class="titulo-missao">MISSÃO: <span class="destaque-neon">OBJETIVOS</span></span>
+                <span class="codigo-status">[SISTEMA_ATIVO]</span>
+            </h2>
+            <div class="dados-sistema">
+                <span class="status">🟢 OPERACIONAL</span>
+                <span class="versao">v2.0.6</span>
             </div>
-            <div class="abas-textos">
-                <div class="aba-conteudo ativo">
-                    <h3 class="aba-conteudo-titulo-principal">Estudar 4 cursos na Alura</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-                    <div class="contador">
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="dias0">0</p>
-                            <p class="contador-digito-texto">dias</p>
+        </div>
+
+        <div class="conteudo">
+            <!-- Sistema de abas estilo holográfico -->
+            <div class="sistema-abas">
+                <input type="radio" name="aba" id="aba1" class="aba-input" checked>
+                <label for="aba1" class="aba-label">
+                    <span class="icone-aba">🎯</span>
+                    <span class="texto-aba">META PRIMÁRIA</span>
+                </label>
+
+                <input type="radio" name="aba" id="aba2" class="aba-input">
+                <label for="aba2" class="aba-label">
+                    <span class="icone-aba">⚡</span>
+                    <span class="texto-aba">SKILLS</span>
+                </label>
+
+                <input type="radio" name="aba" id="aba3" class="aba-input">
+                <label for="aba3" class="aba-label">
+                    <span class="icone-aba">🚀</span>
+                    <span class="texto-aba">PORTFOLIO</span>
+                </label>
+
+                <input type="radio" name="aba" id="aba4" class="aba-input">
+                <label for="aba4" class="aba-label">
+                    <span class="icone-aba">📡</span>
+                    <span class="texto-aba">CARREIRA</span>
+                </label>
+
+                <!-- Conteúdo das abas -->
+                <div class="aba-conteudo-container">
+                    <div class="aba-conteudo" id="conteudo1">
+                        <div class="card-missao">
+                            <div class="nivel-dificuldade">
+                                <span class="dificuldade-badge">NÍVEL 1</span>
+                                <div class="barras-energia">
+                                    <div class="barra-energia" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            <h3 class="missao-titulo">Domínio Técnico em Front-End</h3>
+                            <div class="missao-objetivos">
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>Certificação React</h4>
+                                        <p>Completar 4 módulos avançados</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>TypeScript Master</h4>
+                                        <p>Projetos com tipagem avançada</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recompensa">
+                                <span>🏆 RECOMPENSA: +500 XP</span>
+                            </div>
                         </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="horas0">0</p>
-                            <p class="contador-digito-texto">horas</p>
+                    </div>
+
+                    <div class="aba-conteudo" id="conteudo2">
+                        <div class="card-missao">
+                            <div class="nivel-dificuldade">
+                                <span class="dificuldade-badge">NÍVEL 2</span>
+                                <div class="barras-energia">
+                                    <div class="barra-energia" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <h3 class="missao-titulo">Desenvolvimento de Projetos</h3>
+                            <div class="missao-objetivos">
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>5 Apps Full Stack</h4>
+                                        <p>Front-end + Back-end integrados</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>Sistema de IA</h4>
+                                        <p>Integração com APIs de IA</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>Projeto Open Source</h4>
+                                        <p>Contribuição para comunidade</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recompensa">
+                                <span>⚡ RECOMPENSA: +1000 XP</span>
+                            </div>
                         </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="min0">0</p>
-                            <p class="contador-digito-texto">min</p>
+                    </div>
+
+                    <div class="aba-conteudo" id="conteudo3">
+                        <div class="card-missao">
+                            <div class="nivel-dificuldade">
+                                <span class="dificuldade-badge">NÍVEL 3</span>
+                                <div class="barras-energia">
+                                    <div class="barra-energia" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <h3 class="missao-titulo">Portfolio Profissional</h3>
+                            <div class="missao-objetivos">
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>3 Projetos Destaque</h4>
+                                        <p>Portfolio com cases reais</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>Blog Técnico</h4>
+                                        <p>Artigos sobre tecnologia</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recompensa">
+                                <span>🚀 RECOMPENSA: +750 XP</span>
+                            </div>
                         </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="seg0">0</p>
-                            <p class="contador-digito-texto">seg</p>
+                    </div>
+
+                    <div class="aba-conteudo" id="conteudo4">
+                        <div class="card-missao">
+                            <div class="nivel-dificuldade">
+                                <span class="dificuldade-badge">NÍVEL 4</span>
+                                <div class="barras-energia">
+                                    <div class="barra-energia" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <h3 class="missao-titulo">Networking & Carreira</h3>
+                            <div class="missao-objetivos">
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>5 Eventos Tech</h4>
+                                        <p>Participação em conferências</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>Mentoria</h4>
+                                        <p>Guiar 3 desenvolvedores</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="objetivo-card">
+                                    <div class="objetivo-check">◻</div>
+                                    <div class="objetivo-info">
+                                        <h4>LinkedIn Estratégico</h4>
+                                        <p>Networking com recrutadores</p>
+                                        <div class="progresso-meta">
+                                            <div class="progresso-bar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="recompensa">
+                                <span>📡 RECOMPENSA: +2000 XP</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="aba-conteudo">
-                    <h3 class="aba-conteudo-titulo-principal">Criar 5 projetos em Javascript</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-                    <div class="contador">
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="dias1">0</p>
-                            <p class="contador-digito-texto">dias</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="horas1">0</p>
-                            <p class="contador-digito-texto">horas</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="min1">0</p>
-                            <p class="contador-digito-texto">min</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="seg1">0</p>
-                            <p class="contador-digito-texto">seg</p>
-                        </div>
+            </div>
+
+            <!-- Painel de Progresso Global -->
+            <div class="painel-progresso">
+                <div class="titulo-painel">📊 PROGRESSO GERAL</div>
+                <div class="xp-total">
+                    <span>XP TOTAL: 0 / 4250</span>
+                    <div class="progresso-global">
+                        <div class="progresso-global-bar" style="width: 0%"></div>
                     </div>
                 </div>
-                <div class="aba-conteudo">
-                    <h3 class="aba-conteudo-titulo-principal">Criar um portfolio com os meus 3 melhores projetos</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-                    <div class="contador">
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="dias2">0</p>
-                            <p class="contador-digito-texto">dias</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="horas2">0</p>
-                            <p class="contador-digito-texto">horas</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="min2">0</p>
-                            <p class="contador-digito-texto">min</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="seg2">0</p>
-                            <p class="contador-digito-texto">seg</p>
-                        </div>
-                    </div>
+                <div class="metas-concluidas">
+                    <span>🎯 METAS: 0/8</span>
                 </div>
-                <div class="aba-conteudo">
-                    <h3 class="aba-conteudo-titulo-principal">Atualizar meu curriculo com os certificados da Alura</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">Tempo para completar o objetivo</h4>
-                    <div class="contador">
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="dias3">0</p>
-                            <p class="contador-digito-texto">dias</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="horas3">0</p>
-                            <p class="contador-digito-texto">horas</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="min3">0</p>
-                            <p class="contador-digito-texto">min</p>
-                        </div>
-                        <div class="contador-digito">
-                            <p class="contador-digito-numero" id="seg3">0</p>
-                            <p class="contador-digito-texto">seg</p>
-                        </div>
-                    </div>
+                <div class="ranking">
+                    <span>🏅 RANKING: APRENDIZ</span>
                 </div>
             </div>
         </div>
+
+        <!-- Rodapé futurista -->
+        <div class="footer-futurista">
+            <div class="scanner"></div>
+            <div class="info-sistema">
+                <span>© 2026 - SISTEMA DE OBJETIVOS v2.0</span>
+                <span>🔒 DADOS CRIPTOGRAFADOS</span>
+            </div>
+        </div>
     </section>
-    <script src="main.js"></script>
 </body>
 
 </html>
