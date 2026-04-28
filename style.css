@@ -1,22 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
 :root {
-    --cor-de-fundo: #1E1E1E;
+    --cor-de-fundo: #0a0a1a;
     --azul-neon: #00FFFF;
+    --azul-neon-escuro: #0088AA;
     --branco: #FFFFFF;
-    --botao-ativo: #3A375E;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+    --botao-ativo: #1a1a3e;
+    --botao-inativo: rgba(26, 26, 62, 0.5);
+    --texto-fundo: rgba(0, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--cor-de-fundo);
+    background: linear-gradient(135deg, #0a0a1a 0%, #0d0d2b 50%, #0a0a1a 100%);
     color: var(--branco);
     font-family: 'Chakra Petch', sans-serif;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
 }
 
+/* Efeito de fundo neon piscante futurista */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 255, 255, 0.03) 0%, transparent 50%),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 255, 0.03) 2px, rgba(0, 255, 255, 0.03) 4px);
+    pointer-events: none;
+    z-index: 0;
+    animation: pulseGlow 3s ease-in-out infinite, scanlines 8s linear infinite;
+}
+
+/* Efeito de brilho pulsante */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.5;
+        box-shadow: inset 0 0 50px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: inset 0 0 100px rgba(0, 255, 255, 0.2), 0 0 30px rgba(0, 255, 255, 0.1);
+    }
+}
+
+/* Efeito de linha de varredura */
+@keyframes scanlines {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 20px;
+    }
+}
+
+/* Efeito de grid futurista */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
 
 .conteudo-principal {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,18 +100,30 @@ body {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    padding: 40px 20px;
+    backdrop-filter: blur(2px);
 }
 
 .titulo-principal {
     text-align: left;
     width: 100%;
     font-size: 32px;
+    text-shadow: 0 0 10px var(--azul-neon), 0 0 20px var(--azul-neon);
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px var(--azul-neon), 0 0 20px var(--azul-neon);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--azul-neon), 0 0 40px var(--azul-neon), 0 0 60px var(--azul-neon-escuro);
+    }
 }
 
 .titulo-principal span {
     color: var(--azul-neon);
 }
-
 
 .botao {
     font-family: 'Chakra Petch', sans-serif;
@@ -47,10 +135,35 @@ body {
     font-size: 18px;
     align-items: center;
     width: 100%;
+    border: none;
     border-bottom: 4px solid var(--botao-ativo);
     border-left: 2px solid var(--botao-ativo);
     border-right: 2px solid var(--botao-ativo);
-    border-top: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito neon nos botões */
+.botao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.botao:hover::before {
+    left: 100%;
+}
+
+.botao:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    border-bottom-color: var(--azul-neon);
 }
 
 .botao:first-child {
@@ -64,16 +177,53 @@ body {
 .botao.ativo {
     background-color: var(--botao-ativo);
     border-bottom: 4px solid var(--azul-neon);
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+    animation: buttonPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 -5px 30px rgba(0, 255, 255, 0.5);
+    }
 }
 
 .abas-textos {
     background-color: var(--texto-fundo);
     padding: 40px;
     border-radius: 0 0 40px 40px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(0, 255, 255, 0.5);
+        box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
+    }
 }
 
 .aba-conteudo.ativo {
     display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .aba-conteudo {
@@ -89,31 +239,67 @@ body {
     text-align: center;
     color: var(--azul-neon);
     text-transform: uppercase;
+    text-shadow: 0 0 5px var(--azul-neon);
 }
 
 .contador {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .contador-digito {
     padding: 0 16px;
     text-align: center;
     min-width: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    animation: digitGlow 2s ease-in-out infinite;
+}
+
+@keyframes digitGlow {
+    0%, 100% {
+        border-color: rgba(0, 255, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(0, 255, 255, 0.8);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+}
+
+.contador-digito:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
 }
 
 .contador-digito-numero {
     font-size: 80px;
     margin: 0;
+    text-shadow: 0 0 10px var(--azul-neon);
+    animation: numberPulse 1s ease-in-out infinite;
+}
 
+@keyframes numberPulse {
+    0%, 100% {
+        text-shadow: 0 0 5px var(--azul-neon);
+    }
+    50% {
+        text-shadow: 0 0 20px var(--azul-neon), 0 0 30px var(--azul-neon);
+    }
 }
 
 .contador-digito-texto {
     color: var(--azul-neon);
     font-size: 20px;
     margin: 0;
-
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 @media screen and (min-width: 768px) {
