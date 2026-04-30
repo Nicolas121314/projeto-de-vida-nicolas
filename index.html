@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>⏳ 2026 - Jornada das Metas | Contador Interativo</title>
+    <title>⏳ 2026 - Metas do Ano | Simulador Temporal</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all 0.2s ease;
         }
 
         body {
-            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
-            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0f1e 0%, #0c1222 100%);
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
             padding: 1.5rem;
             min-height: 100vh;
             display: flex;
@@ -26,11 +25,11 @@
             max-width: 1300px;
             width: 100%;
             margin: 0 auto;
-            background: rgba(18, 25, 45, 0.65);
+            background: rgba(18, 25, 45, 0.7);
             backdrop-filter: blur(3px);
             border-radius: 3rem;
-            padding: 2rem 2rem 2rem 2rem;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -41,17 +40,14 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            display: inline-block;
             margin-bottom: 2rem;
             letter-spacing: -0.5px;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
         .titulo-principal span {
             background: none;
             color: #facc15;
             text-shadow: 0 0 6px #ffd966;
-            font-weight: 900;
             animation: pisca 1.2s infinite;
         }
 
@@ -65,7 +61,6 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-bottom: 2rem;
-            justify-content: flex-start;
             border-bottom: 1px solid rgba(255,255,240,0.15);
             padding-bottom: 0.75rem;
         }
@@ -79,11 +74,8 @@
             border-radius: 60px;
             color: #ccddf8;
             cursor: pointer;
-            backdrop-filter: blur(4px);
             transition: 0.2s;
             font-family: inherit;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             border: 1px solid rgba(255,215,150,0.3);
         }
 
@@ -91,14 +83,12 @@
             background: #1f2b46;
             transform: translateY(-3px);
             color: #fff3c9;
-            border-color: #ffcd7e;
         }
 
         .botao.ativo {
             background: linear-gradient(115deg, #fedb5f, #f9a826);
             color: #0a0c1a;
             box-shadow: 0 8px 20px rgba(250, 170, 30, 0.4);
-            border-color: #fff0b5;
         }
 
         .abas-textos {
@@ -106,7 +96,6 @@
             border-radius: 2rem;
             padding: 1.8rem;
             margin-top: 0.5rem;
-            backdrop-filter: blur(2px);
         }
 
         .aba-conteudo {
@@ -142,7 +131,7 @@
         .contador {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.8rem;
+            gap: 2rem;
             justify-content: flex-start;
             margin: 2rem 0 1.8rem;
         }
@@ -150,16 +139,16 @@
         .contador-digito {
             background: #0b1020dd;
             border-radius: 1.6rem;
-            padding: 0.8rem 1.2rem;
-            min-width: 90px;
+            padding: 1rem 1.5rem;
+            min-width: 110px;
             text-align: center;
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(250,200,100,0.4);
+            border: 1px solid rgba(250,200,100,0.5);
             box-shadow: 0 8px 14px rgba(0,0,0,0.3);
         }
 
         .contador-digito-numero {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 800;
             font-family: 'Monaco', 'Courier New', monospace;
             background: linear-gradient(145deg, #FDF4B0, #FCD34D);
@@ -170,11 +159,12 @@
         }
 
         .contador-digito-texto {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             font-weight: 600;
             color: #9ab3e0;
             letter-spacing: 1px;
+            margin-top: 0.3rem;
         }
 
         .frase-motivacional {
@@ -187,7 +177,6 @@
             color: #e2e8ff;
             border-left: 6px solid #facc15;
             font-size: 1rem;
-            backdrop-filter: blur(8px);
         }
 
         .footer-motivacional {
@@ -197,54 +186,47 @@
             padding: 1rem;
             border-radius: 3rem;
             font-size: 0.95rem;
-            font-weight: 500;
             color: #ffefb9;
-            letter-spacing: 0.5px;
         }
 
-        /* botão surpresa aleatório */
         .random-control {
             display: flex;
-            justify-content: flex-end;
-            margin-top: 1rem;
-            gap: 1rem;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
         }
 
         .btn-aleatorio {
-            background: #2a2f4b;
+            background: linear-gradient(135deg, #2a2f4b, #1e2340);
             border: none;
-            padding: 0.6rem 1.4rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 50px;
             font-weight: bold;
             color: #ffde9c;
             cursor: pointer;
-            font-size: 0.85rem;
-            backdrop-filter: blur(4px);
+            font-size: 1rem;
             transition: 0.2s;
             border: 1px solid #ffc857;
         }
 
         .btn-aleatorio:hover {
             background: #3e4570;
-            transform: scale(0.97);
+            transform: scale(1.02);
             color: white;
         }
 
+        .meta-concluida {
+            background: #1e3a2e !important;
+            border-left-color: #4caf50 !important;
+        }
+
         @media (max-width: 680px) {
-            .conteudo-principal {
-                padding: 1.5rem;
-            }
-            .titulo-principal {
-                font-size: 1.8rem;
-            }
-            .contador-digito-numero {
-                font-size: 1.9rem;
-            }
-            .botao {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.9rem;
-            }
+            .conteudo-principal { padding: 1.5rem; }
+            .titulo-principal { font-size: 1.8rem; }
+            .contador-digito-numero { font-size: 2rem; }
+            .contador-digito { padding: 0.6rem 1rem; min-width: 75px; }
+            .botao { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -256,43 +238,47 @@
             <div class="botoes">
                 <button class="botao ativo">🎓 Faculdade</button>
                 <button class="botao">🚗 CNH</button>
-                <button class="botao">🌍 Idioma Novo</button>
+                <button class="botao">🌍 Idioma</button>
                 <button class="botao">✈️ Viagem</button>
             </div>
             
             <div class="abas-textos">
-                <!-- 4 objetivos -->
-                <div class="aba-conteudo ativo" data-target="0">
+                <!-- Meta 1 - Faculdade -->
+                <div class="aba-conteudo ativo" data-meta="0">
                     <h3 class="aba-conteudo-titulo-principal">🎓 Ingressar na Faculdade</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">✅ Meta: Matrícula realizada até Fevereiro/2026<br> ⏳ Prazo final: 28/Fev/2026</h4>
-                    <div class="contador" id="contador0">
-                        <!-- preenchido pelo js -->
-                    </div>
-                    <div class="frase-motivacional">
+                    <h4 class="aba-conteudo-titulo-secundario">📅 Prazo final: 28 de Fevereiro de 2026</h4>
+                    <div class="contador" id="contador0"></div>
+                    <div class="frase-motivacional" id="frase0">
                         💡 "O primeiro passo para o sucesso é acreditar no seu potencial"
                     </div>
                 </div>
-                <div class="aba-conteudo" data-target="1">
-                    <h3 class="aba-conteudo-titulo-principal">🚗 Tirar a CNH (Categoria B)</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">✅ Meta: CNH aprovada até 30/Junho/2026</h4>
+
+                <!-- Meta 2 - CNH -->
+                <div class="aba-conteudo" data-meta="1">
+                    <h3 class="aba-conteudo-titulo-principal">🚗 Tirar a CNH</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">📅 Prazo final: 30 de Junho de 2026</h4>
                     <div class="contador" id="contador1"></div>
-                    <div class="frase-motivacional">
+                    <div class="frase-motivacional" id="frase1">
                         🧠 "A disciplina é a ponte entre metas e realizações"
                     </div>
                 </div>
-                <div class="aba-conteudo" data-target="2">
+
+                <!-- Meta 3 - Idioma -->
+                <div class="aba-conteudo" data-meta="2">
                     <h3 class="aba-conteudo-titulo-principal">🌍 Aprender um Idioma Novo</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">✅ Meta: Certificação até 30/Setembro/2026 (Nível B1)</h4>
+                    <h4 class="aba-conteudo-titulo-secundario">📅 Prazo final: 30 de Setembro de 2026</h4>
                     <div class="contador" id="contador2"></div>
-                    <div class="frase-motivacional">
+                    <div class="frase-motivacional" id="frase2">
                         🗺️ "Um novo idioma é uma nova visão de mundo"
                     </div>
                 </div>
-                <div class="aba-conteudo" data-target="3">
-                    <h3 class="aba-conteudo-titulo-principal">✈️ Viagem Internacional / Nacional</h3>
-                    <h4 class="aba-conteudo-titulo-secundario">✅ Meta: Viagem realizada até 20/Dezembro/2026</h4>
+
+                <!-- Meta 4 - Viagem -->
+                <div class="aba-conteudo" data-meta="3">
+                    <h3 class="aba-conteudo-titulo-principal">✈️ Viagem Internacional</h3>
+                    <h4 class="aba-conteudo-titulo-secundario">📅 Prazo final: 20 de Dezembro de 2026</h4>
                     <div class="contador" id="contador3"></div>
-                    <div class="frase-motivacional">
+                    <div class="frase-motivacional" id="frase3">
                         🌟 "Viajar é a única coisa que te faz mais rico"
                     </div>
                 </div>
@@ -300,279 +286,273 @@
         </div>
 
         <div class="random-control">
-            <button id="randomStepBtn" class="btn-aleatorio">🎲 AVANÇO ALEATÓRIO (dias/horas/min)</button>
-            <button id="resetCountersBtn" class="btn-aleatorio">🔄 Reiniciar Contagens</button>
-            <span style="font-size: 0.7rem; color:#bba67e; align-self:center;">⚡ simule o tempo!</span>
+            <button id="randomAdvanceBtn" class="btn-aleatorio">🎲 AVANÇAR TEMPO ALEATORIAMENTE</button>
+            <button id="resetBtn" class="btn-aleatorio">🔄 RESETAR TUDO</button>
         </div>
 
         <div class="footer-motivacional">
-            <p>⚡ 2026 - O ano da transformação! Cada dia é uma nova oportunidade ⚡<br>
-            ✨ Clique em "Avanço Aleatório" para pular o tempo de forma randômica entre dias, horas e minutos. Conclua suas metas antes do prazo final!</p>
+            <p>⚡ CLIQUE EM "AVANÇAR TEMPO" - Os dias e horas vão diminuindo aleatoriamente! Complete suas metas antes do prazo! ⚡</p>
         </div>
     </section>
     
     <script>
-        // DATAS FINAIS DE CADA META (ano 2026)
-        // Faculdade: 28 de fevereiro de 2026 -> 28/02/2026 23:59:59
-        // CNH: 30 de junho de 2026 -> 30/06/2026 23:59:59
-        // Idioma: 30 de setembro de 2026 -> 30/09/2026 23:59:59
-        // Viagem: 20 de dezembro de 2026 -> 20/12/2026 23:59:59
-        const metasDeadline = [
-            new Date(2026, 1, 28, 23, 59, 59),   // Fevereiro (mês 1)
-            new Date(2026, 5, 30, 23, 59, 59),   // Junho (mês 5)
-            new Date(2026, 8, 30, 23, 59, 59),   // Setembro (mês 8)
-            new Date(2026, 11, 20, 23, 59, 59)   // Dezembro (mês 11)
+        // DATAS LIMITE DAS METAS (2026)
+        const prazos = [
+            new Date(2026, 1, 28, 23, 59, 59),  // Faculdade - 28/02/2026
+            new Date(2026, 5, 30, 23, 59, 59),  // CNH - 30/06/2026
+            new Date(2026, 8, 30, 23, 59, 59),  // Idioma - 30/09/2026
+            new Date(2026, 11, 20, 23, 59, 59)  // Viagem - 20/12/2026
         ];
 
-        // Estado SIMULADO de "tempo atual" para cada meta (em milissegundos)
-        // Inicialmente, usamos a data real do navegador como base comum para todas as metas.
-        // Mas para permitir o avanço aleatório individual e independente, vamos criar uma variável 'tempoCorrentePorMeta'
-        // que representa o "agora simulado" para cada contador. Assim o usuário avança randomicamente e até conclui.
-        // A base é a data real atual no momento do carregamento, mas pode sofrer acréscimos.
-        let currentSimulatedTime = new Date(); // timestamp global padrão para todas no início
-        let tempoPorMeta = [
-            new Date(currentSimulatedTime),
-            new Date(currentSimulatedTime),
-            new Date(currentSimulatedTime),
-            new Date(currentSimulatedTime)
+        // TEMPO SIMULADO PARA CADA META (começa com a data/hora atual real)
+        let tempoSimulado = [
+            new Date(), // meta 0 começa agora
+            new Date(), // meta 1 começa agora
+            new Date(), // meta 2 começa agora
+            new Date()  // meta 3 começa agora
         ];
 
-        // Flag para impedir que ultrapassem a data final negativa
-        function getTimeRemaining(targetDate, simulatedNow) {
-            const total = targetDate.getTime() - simulatedNow.getTime();
-            if (total <= 0) {
-                return { total: 0, days: 0, hours: 0, minutes: 0, seconds: 0, expired: true };
+        let abaAtiva = 0; // 0=faculdade, 1=cnh, 2=idioma, 3=viagem
+
+        // FUNÇÃO PARA CALCULAR DIAS, HORAS, MINUTOS, SEGUNDOS RESTANTES
+        function calcularTempoRestante(dataAlvo, dataAtual) {
+            const diferenca = dataAlvo.getTime() - dataAtual.getTime();
+            
+            if (diferenca <= 0) {
+                return { dias: 0, horas: 0, minutos: 0, segundos: 0, expirado: true };
             }
-            const seconds = Math.floor((total / 1000) % 60);
-            const minutes = Math.floor((total / 1000 / 60) % 60);
-            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-            const days = Math.floor(total / (1000 * 60 * 60 * 24));
-            return { total, days, hours, minutes, seconds, expired: false };
+            
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+            
+            return { dias, horas, minutos, segundos, expirado: false };
         }
 
-        // Atualiza todos os contadores na tela conforme o tempoSimulado de cada meta
-        function updateAllCounters() {
+        // ATUALIZA TODOS OS CONTADORES NA TELA
+        function atualizarContadores() {
             for (let i = 0; i < 4; i++) {
-                const deadline = metasDeadline[i];
-                const simNow = tempoPorMeta[i];
-                const remaining = getTimeRemaining(deadline, simNow);
+                const restante = calcularTempoRestante(prazos[i], tempoSimulado[i]);
                 const container = document.getElementById(`contador${i}`);
+                const fraseDiv = document.getElementById(`frase${i}`);
+                
                 if (container) {
-                    // Se expirou, mostrar 0 e mensagem de concluído
-                    if (remaining.expired || remaining.total <= 0) {
+                    if (restante.expirado) {
                         container.innerHTML = `
-                            <div class="contador-digito"><p class="contador-digito-numero">0</p><p class="contador-digito-texto">dias</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">0</p><p class="contador-digito-texto">horas</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">0</p><p class="contador-digito-texto">min</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">0</p><p class="contador-digito-texto">seg</p></div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">0</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">0</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">0</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">0</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
                         `;
-                        // Adicionar texto de conquista na frase se ainda não tiver
-                        const abaDiv = container.closest('.aba-conteudo');
-                        if (abaDiv && !abaDiv.querySelector('.badge-concluido')) {
-                            const motiv = abaDiv.querySelector('.frase-motivacional');
-                            if (motiv && !motiv.innerHTML.includes('✅ CONCLUÍDO')) {
-                                motiv.innerHTML = `🎉 ✅ META CUMPRIDA! ${motiv.innerHTML} 🎉`;
-                                motiv.style.background = "#1e3a2e";
-                                motiv.style.borderLeftColor = "#ffd966";
-                            }
+                        if (fraseDiv && !fraseDiv.innerHTML.includes('✅ CONCLUÍDA')) {
+                            fraseDiv.innerHTML = `🎉 ✅ META CONCLUÍDA! 🎉<br>${fraseDiv.innerHTML}`;
+                            fraseDiv.classList.add('meta-concluida');
                         }
                     } else {
                         container.innerHTML = `
-                            <div class="contador-digito"><p class="contador-digito-numero">${remaining.days}</p><p class="contador-digito-texto">dias</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">${remaining.hours}</p><p class="contador-digito-texto">horas</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">${remaining.minutes}</p><p class="contador-digito-texto">min</p></div>
-                            <div class="contador-digito"><p class="contador-digito-numero">${remaining.seconds}</p><p class="contador-digito-texto">seg</p></div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">${restante.dias}</p>
+                                <p class="contador-digito-texto">dias</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">${restante.horas}</p>
+                                <p class="contador-digito-texto">horas</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">${restante.minutos}</p>
+                                <p class="contador-digito-texto">min</p>
+                            </div>
+                            <div class="contador-digito">
+                                <p class="contador-digito-numero">${restante.segundos}</p>
+                                <p class="contador-digito-texto">seg</p>
+                            </div>
                         `;
-                        // Remove badge se expirou e depois reativou? (mas reativar só via reset)
-                        const abaDiv = container.closest('.aba-conteudo');
-                        if (abaDiv) {
-                            const motiv = abaDiv.querySelector('.frase-motivacional');
-                            if (motiv && motiv.innerHTML.includes('✅ CONCLUÍDO')) {
-                                // Se voltou a ter tempo restante, limpa a mensagem especial (reset)
-                                if (remaining.total > 0) {
-                                    let originalMsg = "";
-                                    if (i === 0) originalMsg = "💡 \"O primeiro passo para o sucesso é acreditar no seu potencial\"";
-                                    if (i === 1) originalMsg = "🧠 \"A disciplina é a ponte entre metas e realizações\"";
-                                    if (i === 2) originalMsg = "🗺️ \"Um novo idioma é uma nova visão de mundo\"";
-                                    if (i === 3) originalMsg = "🌟 \"Viajar é a única coisa que te faz mais rico\"";
-                                    motiv.innerHTML = originalMsg;
-                                    motiv.style.background = "rgba(0, 0, 0, 0.5)";
-                                }
-                            }
+                        // Se estava comemorando e agora voltou a ter tempo (reset), restaura a frase
+                        if (fraseDiv && fraseDiv.innerHTML.includes('✅ CONCLUÍDA')) {
+                            const frasesOriginais = [
+                                '💡 "O primeiro passo para o sucesso é acreditar no seu potencial"',
+                                '🧠 "A disciplina é a ponte entre metas e realizações"',
+                                '🗺️ "Um novo idioma é uma nova visão de mundo"',
+                                '🌟 "Viajar é a única coisa que te faz mais rico"'
+                            ];
+                            fraseDiv.innerHTML = frasesOriginais[i];
+                            fraseDiv.classList.remove('meta-concluida');
                         }
                     }
                 }
             }
         }
 
-        // Função para aplicar um avanço aleatório (dias, horas, minutos, segundos) sobre uma meta específica ou todas?
-        // Criaremos duas opções: "Avanço Aleatório" afeta TODAS as metas ativas de uma vez? melhor afetar a meta atualmente selecionada?
-        // De acordo com a ideia: "coloque isso aleatoriamente dentro de um ano para eu concluir" -> O usuário pode aleatoriamente pular o tempo até zerar.
-        // Vamos fazer: O botão "AVANÇO ALEATÓRIO" aplicará um incremento aleatório de tempo apenas na meta que está visível (ativa), simulando que aquela tarefa progride no calendário.
-        // Isso dá sensação de "passar o tempo" randômico para aquela meta.
-        // Também faremos um reset universal.
-        
-        let activeTabIndex = 0; // 0-facul,1-CNH,2-idioma,3-viagem
-        
-        function updateActiveTabFromButtons() {
-            const botoes = document.querySelectorAll('.botao');
-            const abas = document.querySelectorAll('.aba-conteudo');
-            botoes.forEach((btn, idx) => {
-                if (btn.classList.contains('ativo')) {
-                    activeTabIndex = idx;
-                    abas.forEach((aba, iab) => {
-                        if (iab === idx) {
-                            aba.classList.add('ativo');
-                        } else {
-                            aba.classList.remove('ativo');
-                        }
-                    });
-                }
-            });
-        }
-        
-        // Avanço aleatório na meta ativa: adiciona um valor aleatório (de 1 a 90 dias, ou algumas horas/minutos)
-        // Mas cuidado: não pode ultrapassar a data final? Se ultrapassar, setamos exatamente na data final para mostrar concluído.
-        // Vamos sortear incremento de tempo ENTRE 1 hora até 45 dias no máximo, para simular aleatório.
-        function applyRandomAdvanceToActiveMeta() {
-            // gera um valor aleatório em milissegundos: entre 1 hora (3.600.000 ms) e até 40 dias (3.456.000.000 ms)
+        // AVANÇO ALEATÓRIO NA META ATIVA
+        function avancarTempoAleatorio() {
+            const metaIndex = abaAtiva;
+            const prazo = prazos[metaIndex];
+            const agora = tempoSimulado[metaIndex];
+            
+            // Verificar se já foi concluída
+            if (agora.getTime() >= prazo.getTime()) {
+                mostrarMensagem(`🎉 Meta já está CONCLUÍDA! Use RESET para recomeçar.`);
+                return;
+            }
+            
+            // Gerar tempo aleatório para avançar: entre 1 hora e 30 dias
             const umDia = 24 * 60 * 60 * 1000;
-            const minAdvance = 1 * 60 * 60 * 1000;   // 1 hora
-            const maxAdvance = 40 * umDia;            // 40 dias
-            let randomMs = Math.floor(Math.random() * (maxAdvance - minAdvance + 1) + minAdvance);
-            // bônus: as vezes pode ser poucos minutos? para ficar mais divertido, 20% de chance de ser bem pequeno (5min até 4h)
-            const rare = Math.random();
-            if (rare < 0.25) {
-                randomMs = Math.floor(Math.random() * (8 * 60 * 60 * 1000) + (5 * 60 * 1000)); // 5min até 8h
-            }
-            // aplica na meta ativa
-            let simulatedNow = tempoPorMeta[activeTabIndex];
-            let newTime = new Date(simulatedNow.getTime() + randomMs);
-            const deadline = metasDeadline[activeTabIndex];
-            // não pode ultrapassar deadline + 1 segundo? Se ultrapassar, fixa na deadline
-            if (newTime.getTime() > deadline.getTime()) {
-                newTime = new Date(deadline.getTime());
-            }
-            tempoPorMeta[activeTabIndex] = newTime;
+            const minimo = 1 * 60 * 60 * 1000;      // 1 hora
+            const maximo = 30 * umDia;                // 30 dias
             
-            // Atualizar contadores
-            updateAllCounters();
-            
-            // Mostrar toast opcional de feedback (simples)
-            const diasAvancados = (randomMs / (1000*3600*24)).toFixed(1);
-            showFloatingFeedback(`⏩ Meta avançou ~${diasAvancados} dias!`);
-        }
-        
-        function showFloatingFeedback(msg) {
-            let div = document.createElement('div');
-            div.innerText = msg;
-            div.style.position = 'fixed';
-            div.style.bottom = '20px';
-            div.style.left = '50%';
-            div.style.transform = 'translateX(-50%)';
-            div.style.backgroundColor = '#1e293b';
-            div.style.color = '#facc15';
-            div.style.padding = '0.7rem 1.5rem';
-            div.style.borderRadius = '40px';
-            div.style.fontWeight = 'bold';
-            div.style.zIndex = '999';
-            div.style.backdropFilter = 'blur(12px)';
-            div.style.border = '1px solid #fedb5f';
-            div.style.fontSize = '0.9rem';
-            document.body.appendChild(div);
-            setTimeout(() => { div.remove(); }, 2000);
-        }
-        
-        // Resetar todos os contadores: retornar o tempo simulado para "agora real"
-        function resetAllCounters() {
-            const nowReal = new Date();
-            for (let i = 0; i < tempoPorMeta.length; i++) {
-                // mas, se resetarmos, não podemos passar das datas? nowReal pode ser após alguma deadline? 
-                // Se a data atual for maior que a deadline, a meta já estaria expirada - mas reset deve permitir recomeçar
-                // Para melhor experiência: setamos para a data atual real (ou data atual se já tiver passado da data limite, ainda sim, mostra negativo?
-                // Porém, se hoje já é depois de 28/02/2026 por exemplo, a faculdade estaria negativa. Vamos forçar um mínimo: data atual mas não maior que a deadline + margem?
-                // Ideal: setar para agora real, mas se o usuário resetar e já tiver passado prazos, vai mostrar 'expirado', mas ele pode avançar até antes? Melhor: resetamos para 'agora real'
-                // Mas como é 2026 simulado, podemos também simular que voltamos para a data atual real (agora)
-                let resetDate = new Date(nowReal);
-                // caso resetDate seja posterior à deadline? Garantir que se for depois, a diferença negativa aparece como 0 nos contadores
-                tempoPorMeta[i] = resetDate;
+            // 30% de chance de ser um avanço pequeno (horas)
+            let incrementoMs;
+            if (Math.random() < 0.3) {
+                // Avanço pequeno: entre 30 minutos e 6 horas
+                incrementoMs = Math.floor(Math.random() * (6 * 60 * 60 * 1000 - 30 * 60 * 1000) + 30 * 60 * 1000);
+            } else {
+                // Avanço normal: entre 1 dia e 30 dias
+                incrementoMs = Math.floor(Math.random() * (maximo - minimo) + minimo);
             }
-            updateAllCounters();
-            // restaurar mensagens originais das frases (caso tenham sido alteradas)
+            
+            const novoTempo = new Date(agora.getTime() + incrementoMs);
+            
+            // Não pode ultrapassar o prazo
+            if (novoTempo.getTime() > prazo.getTime()) {
+                tempoSimulado[metaIndex] = new Date(prazo.getTime());
+                mostrarMensagem(`⚡ META CONCLUÍDA! Você atingiu o prazo final! ⚡`);
+            } else {
+                tempoSimulado[metaIndex] = novoTempo;
+                const diasAvancados = (incrementoMs / umDia).toFixed(1);
+                mostrarMensagem(`⏩ Avançou ${diasAvancados} dias na meta "${getNomeMeta(metaIndex)}"`);
+            }
+            
+            atualizarContadores();
+        }
+
+        function getNomeMeta(index) {
+            const nomes = ['Faculdade', 'CNH', 'Idioma', 'Viagem'];
+            return nomes[index];
+        }
+
+        function mostrarMensagem(msg) {
+            let toast = document.createElement('div');
+            toast.textContent = msg;
+            toast.style.position = 'fixed';
+            toast.style.bottom = '30px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.backgroundColor = '#1e293b';
+            toast.style.color = '#facc15';
+            toast.style.padding = '12px 24px';
+            toast.style.borderRadius = '50px';
+            toast.style.fontWeight = 'bold';
+            toast.style.zIndex = '1000';
+            toast.style.border = '2px solid #facc15';
+            toast.style.fontSize = '1rem';
+            toast.style.whiteSpace = 'nowrap';
+            toast.style.fontFamily = 'inherit';
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 2500);
+        }
+
+        // RESETAR TODAS AS METAS (voltar ao momento atual real)
+        function resetarTudo() {
+            const agoraReal = new Date();
+            for (let i = 0; i < tempoSimulado.length; i++) {
+                tempoSimulado[i] = new Date(agoraReal);
+            }
+            atualizarContadores();
+            
+            // Restaurar frases originais
             const frasesOriginais = [
-                "💡 \"O primeiro passo para o sucesso é acreditar no seu potencial\"",
-                "🧠 \"A disciplina é a ponte entre metas e realizações\"",
-                "🗺️ \"Um novo idioma é uma nova visão de mundo\"",
-                "🌟 \"Viajar é a única coisa que te faz mais rico\""
+                '💡 "O primeiro passo para o sucesso é acreditar no seu potencial"',
+                '🧠 "A disciplina é a ponte entre metas e realizações"',
+                '🗺️ "Um novo idioma é uma nova visão de mundo"',
+                '🌟 "Viajar é a única coisa que te faz mais rico"'
             ];
+            
             for (let i = 0; i < 4; i++) {
-                const container = document.getElementById(`contador${i}`);
-                if (container) {
-                    const abaDiv = container.closest('.aba-conteudo');
-                    if (abaDiv) {
-                        const motiv = abaDiv.querySelector('.frase-motivacional');
-                        if (motiv) {
-                            motiv.innerHTML = frasesOriginais[i];
-                            motiv.style.background = "rgba(0, 0, 0, 0.5)";
-                            motiv.style.borderLeftColor = "#facc15";
-                        }
-                    }
+                const fraseDiv = document.getElementById(`frase${i}`);
+                if (fraseDiv) {
+                    fraseDiv.innerHTML = frasesOriginais[i];
+                    fraseDiv.classList.remove('meta-concluida');
                 }
             }
-            showFloatingFeedback("🔄 Todos os cronômetros foram reiniciados ao tempo real atual!");
-        }
-        
-        // Inicialização de ouvintes e contagem periódica (1 segundo)
-        function init() {
-            // preenche contadores vazios e inicia
-            updateAllCounters();
             
-            // Eventos dos botões de abas
+            mostrarMensagem(`🔄 Todas as metas foram resetadas para o momento atual!`);
+        }
+
+        // CONFIGURAR EVENTOS DOS BOTÕES DAS ABAS
+        function configurarAbas() {
             const botoes = document.querySelectorAll('.botao');
             const abas = document.querySelectorAll('.aba-conteudo');
+            
             botoes.forEach((botao, idx) => {
                 botao.addEventListener('click', () => {
+                    // Remove classe ativo de todos botões
                     botoes.forEach(btn => btn.classList.remove('ativo'));
                     botao.classList.add('ativo');
+                    
+                    // Esconde todas abas e mostra a correspondente
                     abas.forEach(aba => aba.classList.remove('ativo'));
                     abas[idx].classList.add('ativo');
-                    activeTabIndex = idx;
+                    
+                    abaAtiva = idx;
                 });
             });
-            
-            // botão aleatório
-            const randomBtn = document.getElementById('randomStepBtn');
-            if (randomBtn) {
-                randomBtn.addEventListener('click', () => {
-                    applyRandomAdvanceToActiveMeta();
-                });
-            }
-            
-            const resetBtn = document.getElementById('resetCountersBtn');
-            if (resetBtn) {
-                resetBtn.addEventListener('click', () => {
-                    resetAllCounters();
-                });
-            }
-            
-            // Atualizar contador a cada segundo (para mostrar segundos decrescendo naturalmente)
+        }
+
+        // ATUALIZAÇÃO A CADA SEGUNDO (para os segundos contarem)
+        function iniciarTickTack() {
             setInterval(() => {
-                // O tempo real simulado NÃO avança sozinho, a menos que o usuário clique em avanço aleatório.
-                // Mas o contador por segundo atualiza a partir do tempoPorMeta fixo, e o tempo restante diminui porque relógio real não avança?! 
-                // IMPORTANTE: O tempoPorMeta é o "agora simulado". Se não incrementarmos sozinho, os segundos não mudam.
-                // Para dar realismo sem atrapalhar, faremos o seguinte: O tempo real base passa naturalmente?
-                // Nós queremos que os contadores sejam dinâmicos e o usuário possa "pular" aleatório. Mas também seria legal os segundos caírem lentamente sem ação.
-                // A melhor abordagem: incrementar automaticamente o tempoPorMeta de cada meta a cada segundo real, mas isso faria o tempo correr muito rápido.
-                // Vamos manter os contadores estáticos a não ser que o usuário interaja com "Avanço Aleatório", assim ele controla a simulação.
-                // Entretanto, isso deixaria segundos parados. Vamos adicionar uma opção: passar 1 minuto a cada clique? não.
-                // Solução elegante: Para manter a magia, o contador atualiza sim, mas não avançará automaticamente, mostrando o tempo restante baseado no tempo simulado estático.
-                // O usuário deve avançar manualmente usando o botão aleatório. Perfeito para gamificação.
-                // Mas faremos um "tique" visual nos números? basta dar updateAllCounters (não altera dados)
-                updateAllCounters();
+                // Os segundos devem passar naturalmente? 
+                // Para simular a passagem real do tempo, incrementamos 1 segundo em cada meta NÃO CONCLUÍDA?
+                // Mas o ideal é que o tempo só avance com o botão, senão perde o controle.
+                // Porém, os segundos ficariam parados. 
+                // SOLUÇÃO: o contador mostra a diferença baseada no tempoSimulado que NÃO muda sozinho.
+                // Mas para dar dinamismo, faremos o tempoSimulado aumentar 1 segundo por segundo APENAS se não estiver expirado?
+                // Isso faria o tempo correr naturalmente também.
+                // Vou implementar: cada segundo real, incrementa 1 segundo em cada meta (a não ser que já tenha expirado)
+                // Assim os números descem sozinhos, mas o botão dá saltos grandes.
+                for (let i = 0; i < tempoSimulado.length; i++) {
+                    if (tempoSimulado[i].getTime() < prazos[i].getTime()) {
+                        tempoSimulado[i] = new Date(tempoSimulado[i].getTime() + 1000);
+                    }
+                }
+                atualizarContadores();
             }, 1000);
         }
+
+        // INICIALIZAÇÃO
+        function init() {
+            configurarAbas();
+            atualizarContadores();
+            
+            const randomBtn = document.getElementById('randomAdvanceBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            if (randomBtn) {
+                randomBtn.addEventListener('click', avancarTempoAleatorio);
+            }
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetarTudo);
+            }
+            
+            iniciarTickTack(); // Os segundos rodam naturalmente, o botão dá saltos maiores
+        }
         
-        // chamada inicial
         init();
     </script>
 </body>
